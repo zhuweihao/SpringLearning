@@ -1,6 +1,8 @@
 package com.zhuweihao.SpringFramework;
 
+import com.zhuweihao.SpringFramework.pojo.Book;
 import com.zhuweihao.SpringFramework.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
@@ -17,6 +19,18 @@ import javax.annotation.Resource;
 public class myTest {
     @Resource
     private User user;
+
+    @Resource
+    private Book book;
+
+    @Test
+    public void testBook(){
+        System.out.println("book = " + book);
+    }
+    @Test
+    public void testDIValue(){
+        System.out.println("user = " + user);
+    }
 
     @Test
     public void Demo() {

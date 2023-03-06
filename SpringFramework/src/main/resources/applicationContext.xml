@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:q="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="user" class="com.zhuweihao.SpringFramework.pojo.User"/>
+    <bean id="user" class="com.zhuweihao.SpringFramework.pojo.User">
+        <property name="id" value="3"/>
+        <property name="age" value="4"/>
+        <property name="name">
+            <value><![CDATA[<<朱伟豪>>]]></value>
+        </property>
+    </bean>
+
+    <bean id="book" class="com.zhuweihao.SpringFramework.pojo.Book">
+        <constructor-arg name="name" value="大数据分析"/>
+        <constructor-arg name="author" value="朱伟豪"/>
+    </bean>
 
 </beans>
