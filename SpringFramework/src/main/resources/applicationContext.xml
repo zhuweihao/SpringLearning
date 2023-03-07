@@ -52,7 +52,7 @@
         </property>
     </bean>
     
-<!--    <bean id="factorybean" class="com.zhuweihao.SpringFramework.bean.myFactoryBean"/>-->
+    <bean id="factorybean" class="com.zhuweihao.SpringFramework.bean.myFactoryBean"/>
 
 <!--    <bean id="postBean" class="com.zhuweihao.SpringFramework.bean.myBeanPostProcessor"/>-->
 
