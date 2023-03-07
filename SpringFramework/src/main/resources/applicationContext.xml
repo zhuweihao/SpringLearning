@@ -2,7 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:q="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--  开启组件扫描，如果有多个目录，目录之间用逗号隔开,或者直接扫描上级目录  -->
+<!--    <context:component-scan base-package="com.zhuweihao.SpringFramework.controller,com.zhuweihao.SpringFramework.service"/>-->
 
     <bean id="user" class="com.zhuweihao.SpringFramework.pojo.User">
         <property name="id" value="3"/>
@@ -10,11 +17,59 @@
         <property name="name">
             <value><![CDATA[<<朱伟豪>>]]></value>
         </property>
+        <property name="book" ref="book"/>
+        <property name="book.author" value="尚硅谷"/>
     </bean>
 
     <bean id="book" class="com.zhuweihao.SpringFramework.pojo.Book">
         <constructor-arg name="name" value="大数据分析"/>
         <constructor-arg name="author" value="朱伟豪"/>
     </bean>
+
+    <util:list id="courseList">
+        <value>数据结构</value>
+        <value>算法设计与分析</value>
+    </util:list>
+
+    <bean id="stu" class="com.zhuweihao.SpringFramework.pojo.Stu">
+        <property name="course" ref="courseList"/>
+        <property name="score">
+            <array>
+                <value>12</value>
+                <value>45</value>
+            </array>
+        </property>
+        <property name="performance">
+            <map>
+                <entry key="JAVA" value="34"/>
+                <entry key="C++" value="67"/>
+            </map>
+        </property>
+        <property name="classmate">
+            <set>
+                <ref bean="user"/>
+            </set>
+        </property>
+    </bean>
+    
+<!--    <bean id="factorybean" class="com.zhuweihao.SpringFramework.bean.myFactoryBean"/>-->
+
+<!--    <bean id="postBean" class="com.zhuweihao.SpringFramework.bean.myBeanPostProcessor"/>-->
+
+<!--    &lt;!&ndash; 直接配置连接池 &ndash;&gt;-->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://172.22.5.12:3309/zwh"/>-->
+<!--        <property name="username" value="root"/>-->
+<!--        <property name="password" value="03283x"/>-->
+<!--    </bean>-->
+<!--    &lt;!&ndash;通过外部文件配置连接池&ndash;&gt;-->
+<!--    <context:property-placeholder location="jdbc.properties"/>-->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="${DATABASE_DRIVER}"/>-->
+<!--        <property name="url" value="${DATABASE_URL}"/>-->
+<!--        <property name="username" value="${DATABASE_USER}"/>-->
+<!--        <property name="password" value="${DATABASE_PASSWORD}"/>-->
+<!--    </bean>-->
 
 </beans>

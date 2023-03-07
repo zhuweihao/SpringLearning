@@ -9,6 +9,15 @@ public class User {
     private Integer id;
     private String name;
     private Integer age;
+    private Book book;
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
 
     public Integer getId() {
         return id;
@@ -40,7 +49,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", book=" + book +
                 '}';
     }
-
 }
