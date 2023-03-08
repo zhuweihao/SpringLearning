@@ -91,5 +91,6 @@ public class myTest {
         FruitController fruitController = applicationContext.getBean("fruitController", FruitController.class);
         fruitController.test();
         fruitController.testS();
+        fruitController.testSelect();
     }
 }

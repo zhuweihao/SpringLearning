@@ -9,7 +9,7 @@
                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--  开启组件扫描，如果有多个目录，目录之间用逗号隔开,或者直接扫描上级目录  -->
-<!--    <context:component-scan base-package="com.zhuweihao.SpringFramework.controller,com.zhuweihao.SpringFramework.service"/>-->
+<!--    <context:component-scan base-package="com.zhuweihao.SpringFramework"/>-->
 
     <bean id="user" class="com.zhuweihao.SpringFramework.pojo.User">
         <property name="id" value="3"/>
@@ -63,13 +63,16 @@
 <!--        <property name="username" value="root"/>-->
 <!--        <property name="password" value="03283x"/>-->
 <!--    </bean>-->
-<!--    &lt;!&ndash;通过外部文件配置连接池&ndash;&gt;-->
+    <!--通过外部文件配置连接池-->
 <!--    <context:property-placeholder location="jdbc.properties"/>-->
 <!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
 <!--        <property name="driverClassName" value="${DATABASE_DRIVER}"/>-->
 <!--        <property name="url" value="${DATABASE_URL}"/>-->
 <!--        <property name="username" value="${DATABASE_USER}"/>-->
 <!--        <property name="password" value="${DATABASE_PASSWORD}"/>-->
+<!--    </bean>-->
+<!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
 <!--    </bean>-->
 
 </beans>
