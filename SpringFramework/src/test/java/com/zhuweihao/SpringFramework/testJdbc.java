@@ -1,6 +1,7 @@
 package com.zhuweihao.SpringFramework;
 
 import com.zhuweihao.SpringFramework.config.SpringConfig;
+import com.zhuweihao.SpringFramework.controller.FruitController;
 import com.zhuweihao.SpringFramework.pojo.Fruit;
 import com.zhuweihao.SpringFramework.service.FruitService;
 import org.junit.Test;
@@ -16,8 +17,7 @@ import javax.annotation.Resource;
  */
 public class testJdbc {
 
-//    @Resource
-//    private FruitService fruitService;
+
     @Test
     public void testSelect(){
         ApplicationContext applicationContext=new AnnotationConfigApplicationContext(SpringConfig.class);
@@ -25,4 +25,21 @@ public class testJdbc {
         Fruit fruit = fruitService.selectById(4);
         System.out.println("fruit = " + fruit);
     }
+    @Test
+    public void testAdd(){
+        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(SpringConfig.class);
+        FruitController fruitController = applicationContext.getBean("fruitController", FruitController.class);
+        fruitController.testAdd();
+    }
+    @Test
+    public void testUpdate(){
+        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(SpringConfig.class);
+        FruitController fruitController = applicationContext.getBean("fruitController", FruitController.class);
+        //fruitController.testAdd();
+        //fruitController.testUpdate();
+        //fruitController.testDelete();
+        fruitController.testBatch();
+    }
+
+
 }

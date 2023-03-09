@@ -18,4 +18,12 @@ public class Fruit {
     private Integer price;
     private Integer fcount;
     private String remark;
+
+    public Fruit(Integer fid, String fname, Integer price, Integer fcount, String remark) {
+        this.fid = fid;
+        this.fname = fname;
+        this.price = price;
+        this.fcount = fcount;
+        this.remark = remark;
+    }
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Author zhuweihao
@@ -28,5 +29,30 @@ public class FruitServiceImpl implements FruitService {
     @Override
     public Fruit selectById(Integer id) {
         return fruitDao.selectById(id);
+    }
+
+    @Override
+    public void addFruit(Fruit fruit) {
+        fruitDao.addFruit(fruit);
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        fruitDao.deleteById(id);
+    }
+
+    @Override
+    public void updatePriceById(Integer id, Integer price) {
+        fruitDao.updatePriceById(id,price);
+    }
+
+    @Override
+    public void updateBatch(List<Object[]> bathgArgs) {
+        fruitDao.updateBatch(bathgArgs);
+    }
+
+    @Override
+    public void transferAccounts(String transferOutAccount, Integer transferOutAmount, String transferInAccount, Integer transferInAmount) {
+
     }
 }

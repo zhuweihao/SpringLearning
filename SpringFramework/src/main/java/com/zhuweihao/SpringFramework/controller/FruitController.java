@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author zhuweihao
@@ -27,5 +29,21 @@ public class FruitController {
     public void testSelect(){
         Fruit fruit = fruitService.selectById(4);
         System.out.println("fruit = " + fruit);
+    }
+    public void testAdd(){
+        fruitService.addFruit(new Fruit(1,"菠萝",33,55,"热带水果"));
+    }
+    public void testDelete(){
+        fruitService.deleteById(19);
+    }
+    public void testUpdate(){
+        fruitService.updatePriceById(19,44);
+    }
+    public void testBatch(){
+        List<Object[]> objects = new ArrayList<>();
+        objects.add(new Object[]{66,4});
+        objects.add(new Object[]{66,5});
+        objects.add(new Object[]{66,6});
+        fruitService.updateBatch(objects);
     }
 }
