@@ -46,4 +46,7 @@ public class FruitController {
         objects.add(new Object[]{66,6});
         fruitService.updateBatch(objects);
     }
+    public void testBank(){
+
+    }
 }

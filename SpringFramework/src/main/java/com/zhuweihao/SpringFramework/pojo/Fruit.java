@@ -19,6 +19,9 @@ public class Fruit {
     private Integer fcount;
     private String remark;
 
+    public Fruit() {
+    }
+
     public Fruit(Integer fid, String fname, Integer price, Integer fcount, String remark) {
         this.fid = fid;
         this.fname = fname;

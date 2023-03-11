@@ -3,6 +3,7 @@ package com.zhuweihao.SpringFramework.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -44,6 +45,11 @@ public class SpringConfig {
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource){
         return new JdbcTemplate(dataSource);
+    }
+
+    @Bean
+    public DataSourceTransactionManager dataSourceTransactionManager(DataSource dataSource){
+        return new DataSourceTransactionManager(dataSource);
     }
 
 }

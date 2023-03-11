@@ -23,7 +23,7 @@ public class FruitDaoImpl implements FruitDao {
     @Override
     public Fruit selectById(Integer id) {
         String sql = "select * from Fruit where fid = ?";
-        return jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Fruit.class),id);
+        return jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<Fruit>(Fruit.class),id);
     }
 
     @Override

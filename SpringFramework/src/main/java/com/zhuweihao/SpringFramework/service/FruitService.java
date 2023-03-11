@@ -16,6 +16,5 @@ public interface FruitService {
     void deleteById(Integer id);
     void updatePriceById(Integer id,Integer price);
     void updateBatch(List<Object[]> bathgArgs);
-    //转账操作
-    void transferAccounts(String transferOutAccount,Integer transferOutAmount,String transferInAccount,Integer transferInAmount);
+
 }

@@ -3,6 +3,7 @@ package com.zhuweihao.SpringFramework.dao.impl;
 import com.zhuweihao.SpringFramework.dao.BankDao;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 
@@ -11,6 +12,7 @@ import javax.annotation.Resource;
  * @Date 2023/3/9 21:19
  * @Description com.zhuweihao.SpringFramework.dao.impl
  */
+@Repository
 public class BankDaoImpl implements BankDao {
     @Resource
     private JdbcTemplate jdbcTemplate;
@@ -33,6 +35,7 @@ public class BankDaoImpl implements BankDao {
     @Override
     public Integer getAccountBalance(String account) {
         String sql="select money from bank where account=?";
-        return jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Integer.class),account);
+
+        return jdbcTemplate.queryForObject(sql,Integer.class,account);
     }
 }

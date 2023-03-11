@@ -1,6 +1,7 @@
 package com.zhuweihao.SpringFramework.service.impl;
 
 import com.zhuweihao.SpringFramework.controller.FruitController;
+import com.zhuweihao.SpringFramework.dao.BankDao;
 import com.zhuweihao.SpringFramework.dao.FruitDao;
 import com.zhuweihao.SpringFramework.pojo.Fruit;
 import com.zhuweihao.SpringFramework.service.FruitService;
@@ -20,6 +21,8 @@ public class FruitServiceImpl implements FruitService {
 
     @Resource
     private FruitDao fruitDao;
+    @Resource
+    private BankDao bankDao;
 
     @Override
     public void testService() {
@@ -51,8 +54,5 @@ public class FruitServiceImpl implements FruitService {
         fruitDao.updateBatch(bathgArgs);
     }
 
-    @Override
-    public void transferAccounts(String transferOutAccount, Integer transferOutAmount, String transferInAccount, Integer transferInAmount) {
 
-    }
 }
